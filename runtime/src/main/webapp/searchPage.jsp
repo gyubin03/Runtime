@@ -30,9 +30,13 @@
         </div>
     </div>
 
-    <div id="main-container" class="main-container">
-        <!-- 영화 카드가 JS로 동적 생성됩니다 -->
-    </div>
+<div id="main-container" class="main-container"
+     style="display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;">
+    <!-- 영화 카드가 JS로 동적 생성됩니다 -->
+</div>
+
 
 </div>
 

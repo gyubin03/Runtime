@@ -1,25 +1,44 @@
-body {
+/* 기본 스타일 */
+html, body {
+    height: 100%;
     margin: 0;
-    font-family: 'Noto Sans KR', sans-serif;
+    padding: 0;
     background: #fff;
+    font-family: 'Noto Sans KR', sans-serif;
 }
 
 /* ===== Header, Footer, Menu ===== */
-.header, .footer, .menu {
-    width: 100%;
-    text-align: center;
-    color: #fff;
-}
 .header {
-    height: 30px;
-    line-height: 30px;
-    color: #000;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 60px;
+    padding: 0 20px;
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+    box-sizing: border-box;
 }
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-size: 16px;
+}
+.user-info a {
+    text-decoration: none;
+    color: #333;
+    transition: color 0.2s;
+}
+.user-info a:hover {
+    color: #d32f2f;
+}
+
 .menu {
     font-size: 48px;
     height: 80px;
     line-height: 80px;
     background: none;
+    text-align: center;
 }
 .user-menu {
     float: right;
@@ -61,7 +80,7 @@ body {
 
 /* ===== Search Container ===== */
 .search-container {
-    width: 100%;  /* main-container 너비에 맞게 꽉 차게 */
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -100,10 +119,10 @@ body {
     width: 90%;
     margin: 0 auto;
     display: flex;
-    flex-direction: column; /* 수직 정렬 */
-    align-items: stretch; /* 자식들이 컨테이너 폭 전체 사용하도록 */
+    flex-direction: column;
+    align-items: stretch;
     justify-content: flex-start;
-    min-height: 600px;
+    min-height: calc(100vh - 140px); /* 헤더, 메뉴, 푸터 높이 고려 */
     box-sizing: border-box;
     position: relative;
     gap: 20px;
@@ -141,6 +160,7 @@ body {
 
 /* ===== Container ===== */
 .container {
+    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -187,15 +207,16 @@ button:focus, .search-box:focus {
     }
 }
 
-/* ===== Footer (자연스러운 flow, 고정X) ===== */
+/* ===== Footer (페이지 하단 고정 아님. 자연스러운 위치) ===== */
 .footer {
     width: 100%;
     background: #222;
     color: #fff;
     font-size: 15px;
     text-align: center;
-    padding: 18px 0 20px 0;  
+    padding: 18px 0 20px 0;
     box-sizing: border-box;
+    margin-top: 60px; /* 다른 콘텐츠와 여백 */
 }
 .footer-content {
     display: flex;
@@ -211,4 +232,51 @@ button:focus, .search-box:focus {
 }
 .footer-links a:hover {
     text-decoration: underline;
+}
+
+/* ===== 로그인/회원가입 중앙 정렬용 스타일 ===== */
+.form-container {
+    height: calc(100vh - 140px); /* 헤더, 푸터 높이 뺀 값 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.form-box {
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    background: #f5f5f5;
+    padding: 24px 32px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.form-box input[type="text"],
+.form-box input[type="password"] {
+    padding: 12px 16px;
+    font-size: 16px;
+    border: 1px solid #aaa;
+    border-radius: 6px;
+    outline: none;
+    transition: box-shadow 0.3s ease;
+}
+.form-box input[type="text"]:focus,
+.form-box input[type="password"]:focus {
+    box-shadow: 0 0 0 3px #90caf9;
+    border-color: #90caf9;
+}
+.form-box button {
+    padding: 12px 16px;
+    background-color: #d32f2f;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.form-box button:hover {
+    background-color: #b71c1c;
 }

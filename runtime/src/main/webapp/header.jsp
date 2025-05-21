@@ -1,6 +1,16 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page contentType="text/html; charset=UTF-8" %>
+<%
+    String userName = (String)session.getAttribute("userName");
+%>
 <div class="header">
-    <span class="user-menu" style="float:right; margin-right:20px;">
-        회원정보&nbsp;&nbsp;회원가입&nbsp;&nbsp;로그인
-    </span>
+    <div class="user-info">
+        <% if(userName != null) { %>
+            <span><%= userName %>님</span>
+            <a href="memberInfo.jsp">회원정보</a>
+            <a href="logout.jsp">로그아웃</a>
+        <% } else { %>
+            <a href="login.jsp">로그인</a>
+            <a href="register.jsp">회원가입</a>
+        <% } %>
+    </div>
 </div>
