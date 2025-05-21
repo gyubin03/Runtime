@@ -1,0 +1,214 @@
+body {
+    margin: 0;
+    font-family: 'Noto Sans KR', sans-serif;
+    background: #fff;
+}
+
+/* ===== Header, Footer, Menu ===== */
+.header, .footer, .menu {
+    width: 100%;
+    text-align: center;
+    color: #fff;
+}
+.header {
+    height: 30px;
+    line-height: 30px;
+    color: #000;
+}
+.menu {
+    font-size: 48px;
+    height: 80px;
+    line-height: 80px;
+    background: none;
+}
+.user-menu {
+    float: right;
+    font-size: 16px;
+    color: #222;
+}
+
+/* ===== MenuBar Style ===== */
+.menu-bar {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    padding: 20px 0;
+    box-sizing: border-box;
+}
+.menu-btn {
+    display: inline-block;
+    padding: 20px 48px;
+    font-size: 24px;
+    color: #333;
+    background: #e0e0e0;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+    margin: 0;
+    cursor: pointer;
+}
+.menu-btn:hover {
+    background: #bbb;
+    color: #fff;
+}
+.menu-btn.active {
+    background: #d32f2f;
+    color: #fff;
+    font-weight: bold;
+}
+
+/* ===== Search Container ===== */
+.search-container {
+    width: 100%;  /* main-container 너비에 맞게 꽉 차게 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+.search-box {
+    width: 350px;
+    font-size: 18px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #aaa;
+    outline: none;
+}
+.search-icon, .sort-btn, .search-container > button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 7px;
+    background: #e0e0e0;
+    font-size: 18px;
+    color: #222;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    outline: none;
+}
+.search-icon:active, .sort-btn:active, .search-container > button:active {
+    filter: brightness(0.95);
+}
+.sort-btn.active, .search-container > button.active {
+    background: #555;
+    color: #fff;
+}
+
+/* ===== Main/Poster/Carousel ===== */
+.main-container {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column; /* 수직 정렬 */
+    align-items: stretch; /* 자식들이 컨테이너 폭 전체 사용하도록 */
+    justify-content: flex-start;
+    min-height: 600px;
+    box-sizing: border-box;
+    position: relative;
+    gap: 20px;
+}
+
+.carousel-arrow {
+    background: transparent;
+    border: none;
+    font-size: 48px;
+    color: #aaa;
+    cursor: pointer;
+    transition: color 0.2s;
+    user-select: none;
+    outline: none;
+    position: relative;
+    margin: 10px 0;
+}
+.carousel-arrow:active {
+    color: #666;
+}
+.carousel-arrow:hover {
+    color: #444;
+}
+
+.poster-list {
+    display: flex;
+    gap: 32px;
+    overflow-x: hidden;
+    width: 100%;
+    justify-content: center;
+    transition: transform 0.5s cubic-bezier(0.45,0.05,0.55,0.95);
+    will-change: transform;
+    padding: 20px 0;
+}
+
+/* ===== Container ===== */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 48px;
+}
+
+/* ===== Scrollbar/Select/Focus ===== */
+.poster-list::-webkit-scrollbar { display: none; }
+.poster-list { -ms-overflow-style: none; scrollbar-width: none; }
+.poster-list, .carousel-arrow {
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+button:focus, .search-box:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #bbdefb;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 1000px) {
+    .poster-list {
+        gap: 18px;
+    }
+    .main-container, .search-container {
+        width: 98%;
+    }
+    .search-box {
+        width: 180px;
+    }
+    .menu {
+        font-size: 32px;
+        height: 60px;
+        line-height: 60px;
+    }
+    .footer {
+        font-size: 24px;
+        height: auto;
+        line-height: normal;
+    }
+    .menu-btn {
+        font-size: 16px;
+        padding: 10px 16px;
+    }
+}
+
+/* ===== Footer (자연스러운 flow, 고정X) ===== */
+.footer {
+    width: 100%;
+    background: #222;
+    color: #fff;
+    font-size: 15px;
+    text-align: center;
+    padding: 18px 0 20px 0;  
+    box-sizing: border-box;
+}
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-items: center;
+}
+.footer-links a {
+    color: #90caf9;
+    text-decoration: none;
+    margin: 0 8px;
+    font-size: 14px;
+}
+.footer-links a:hover {
+    text-decoration: underline;
+}
