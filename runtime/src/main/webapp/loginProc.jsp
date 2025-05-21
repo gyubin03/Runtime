@@ -43,7 +43,7 @@
             session.setAttribute("userName", userName);
 
             // 8. 로그인 성공 후 메인 페이지 이동
-            response.sendRedirect("index.jsp");
+            response.sendRedirect("movie.jsp");
         } else {
             // 로그인 실패 시 로그인 페이지로 다시 이동
             response.sendRedirect("login.jsp?error=1");
